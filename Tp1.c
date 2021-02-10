@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
             {
 
                 insertVal(matrix, file, m, n);
-                //displayMatrix(matrix, m, n);
+                displayMatrix(matrix, m, n);
                 //Question 2
 
                 // Vérification qu'on demande pas de trier plus de valeurs que celles présentent dans la matrice
@@ -79,6 +79,7 @@ int main(int argc, char *argv[])
                         }
 
                         // Insertion dans la liste
+                        add_cell(preceding, cell);
 
                         if(matrix[0][0]==0 &&((K-1)!=0)){
                             save_i=0;
@@ -108,12 +109,14 @@ int main(int argc, char *argv[])
                         printf("Little suivant est %d \n", little);
                         K=K-1;
                     }
+                     display_linkChain(head);
+                    freelist(head);
                 }
                 else
                 {
                     printf("K est trop grand par rapport au nombre de valeurs disponibles dans la matrice");
                 }
-
+        
                 freeMatrix(matrix, m);
             }
 
