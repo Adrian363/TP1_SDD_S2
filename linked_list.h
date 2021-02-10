@@ -11,8 +11,10 @@ typedef struct value{
     struct value *next;
 }t_value;
 
-void add_cell(t_value **preceding, t_value cell);
+void add_cell(t_value **preceding, t_value *cell);
 
 void del_cell(t_value **preceding);
+
+t_value *create_cell(int value, int fact_number, int week_number);
 
 #endif

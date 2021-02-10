@@ -44,7 +44,7 @@ void displayMatrix(int** matrix,int lines, int columns){
 
     for(i=0; i<lines; i++){
         for(j=0; j<columns; j++){
-           printf("%d ", matrix[i][j]);
+           printf("%d ",matrix[i][j]);
         }
         printf("\n");
     
