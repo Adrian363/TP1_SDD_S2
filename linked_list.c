@@ -57,9 +57,5 @@ t_value *create_cell(int value, int fact_number, int week_number){
 
 }
 
-/* On veut les K couts les plus faibles 
-On prend les K premieres, on les stocke dans la liste chainee par ordre decroissant, 
-puis on prend chaque autres valeurs pour les conparer avec celles deja presentes dans la liste.
-Si pas sup a la valeur de tete, on recherche son prec, on add la cell et on del la cellule de tete*/
 
 
