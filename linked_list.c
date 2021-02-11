@@ -6,13 +6,14 @@ void add_cell(t_value **preceding, t_value *cell){
     *preceding=cell;
 }
 
-t_value **search_prec(t_value *head, int value){
-    t_value *actual = head;
-    t_value **preceding = &head;
+t_value **search_prec(t_value **ad_head, int value){
+    t_value *actual = *ad_head;
+    t_value **preceding = ad_head;
 
-    while(actual && actual->cost>value){
-        preceding=&actual->next;
-        actual=actual->next;
+
+    while((actual!=NULL) && (actual->cost>value)){
+        preceding=&(actual->next);
+        actual=actual->next;    
 
     }
 

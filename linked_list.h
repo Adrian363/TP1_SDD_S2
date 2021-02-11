@@ -13,6 +13,8 @@ typedef struct value{
 
 void add_cell(t_value **preceding, t_value *cell);
 
+t_value **search_prec(t_value **ad_head, int value);
+
 void del_cell(t_value **preceding);
 
 void display_linkChain(t_value *head);
