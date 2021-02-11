@@ -6,11 +6,27 @@ void add_cell(t_value **preceding, t_value *cell){
     *preceding=cell;
 }
 
+t_value **search_prec(t_value *head, int value){
+    t_value *actual = head;
+    t_value **preceding = &head;
+
+    while(actual && actual->cost>value){
+        preceding=&actual->next;
+        actual=actual->next;
+
+    }
+
+    return preceding;
+
+}
+
 void del_cell(t_value **preceding){
     t_value *save=*preceding;
     *preceding=save->next;
     free(save);
 }
+t_value *head = NULL;
+                    t_value **preceding = &head;
 
 void freelist(t_value *head){
     t_value **preceding=&head;
@@ -39,4 +55,10 @@ t_value *create_cell(int value, int fact_number, int week_number){
     return cell;
 
 }
+
+/* On veut les K couts les plus faibles 
+On prend les K premieres, on les stocke dans la liste chainee par ordre decroissant, 
+puis on prend chaque autres valeurs pour les conparer avec celles deja presentes dans la liste.
+Si pas sup a la valeur de tete, on recherche son prec, on add la cell et on del la cellule de tete*/
+
 

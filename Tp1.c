@@ -16,23 +16,21 @@ int main(int argc, char *argv[])
         int m = 0;
         int n = 0;
         int K = 0;
-        int save_i = 0;
-        int save_j = 0;
-        int default_alloc = 0;
+        //int save_i = 0;
+        // int save_j = 0;
+        //int default_alloc = 0;
         int little = 0;
         char temp[4];
         char *fileName = NULL;
 
         fileName = malloc(sizeof(argv[1]));
-
         strcpy(fileName, argv[1]);
-        K = atoi(argv[2]);
+        file=fopen(fileName, "r");
 
-        // Corps du programme
-        openfile(&file, fileName);
         if (file != NULL)
         {
             fgets(temp, 4, file);
+
 
             m = temp[0] - 48;
             n = temp[2] - 48;
@@ -50,9 +48,33 @@ int main(int argc, char *argv[])
                 if (K < n * m)
                 {
                     t_value *head = NULL;
-                    t_value **preceding = &head;
+                    
+                    t_value **prece(cell!=NULL){, fileName)0; i<m; i++){
+                             for(int j=0;j<n; j++){
+                                 if(i+j<K){
+                                     //recherche prec
+                                    preceding=search_prec(head, matrix[i][j]);
+                                     //Creation elem
+                                    t_value *cell=create_cell(matrix[i][j], i, j);
 
-                    little=matrix[0][0];
+                                     // Insertion elem
+                                     add_cell(preceding, cell);
+                                 }
+                                 else // Si on a insere nos 5 premiers elements on regarde si la valeur de la suite de la mat est inféeur au premier elem
+                                 //rechercher prec
+                                 // Insertion       
+                                 // Supp dernier et remise sur le dernier
+                                 {
+                                    printf("OK");
+                                 }
+                             }
+
+                        }
+                    
+                   
+
+                    
+                    /*little=matrix[0][0];
 
                     while ((K!=0) && (default_alloc == 0))
                     {
@@ -108,8 +130,8 @@ int main(int argc, char *argv[])
                         little=matrix[save_i][save_j];
                         printf("Little suivant est %d \n", little);
                         K=K-1;
-                    }
-                     display_linkChain(head);
+                    }*/
+                    display_linkChain(head);
                     freelist(head);
                 }
                 else
