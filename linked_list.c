@@ -20,8 +20,8 @@ t_value **search_prec(t_value **ad_head, int value){
     t_value **preceding = ad_head;
 
 
-    while((actual!=NULL) && (actual->cost>value)){ //Tant que la liste est pas vide et que la valeur de du bloc est < à celle cherchée:
-        preceding=&(actual->next); // on avance dans les blocs
+    while((actual!=NULL) && (actual->cost>value)){ /*Tant que la liste est pas vide et que la valeur de du bloc est < à celle cherchée:*/
+        preceding=&(actual->next); /* on avance dans les blocs*/
         actual=actual->next;    
 
     }
@@ -47,7 +47,10 @@ void freelist(t_value *head){
 void display_linkChain(t_value *head){
     t_value *actual=head; 
     while(actual){
-        printf("%d\n ", actual->cost); /*affichage du coût de prod de chaque bloc*/
+        printf("Cost:%d\n ", actual->cost); /*affichage du coût de prod de chaque bloc*/
+        printf("Factory :%d\n ", actual->factory);/* affichage de l'usine de production*/
+        printf("Week:%d\n --------- \n ", actual->week);/* affichage de la semaine de production*/
+        
         actual=actual->next; /*on met se place sur le bloc suivant*/
     }
 }
