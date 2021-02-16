@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include "linked_list.h"
 
+             /*********************************************************/
+             /*                   Adrian Cottais 2021                 */
+             /*-------------------------------------------------------*/
+             /*                     linked_list.c                     */
+             /*            Traitement d'une liste chainée             */
+             /*                   PROGRAMME PRINCIPAL                 */
+             /*********************************************************/
+
+
 void add_cell(t_value **preceding, t_value *cell){
     cell->next=*preceding;
     *preceding=cell;
@@ -11,8 +20,8 @@ t_value **search_prec(t_value **ad_head, int value){
     t_value **preceding = ad_head;
 
 
-    while((actual!=NULL) && (actual->cost>value)){
-        preceding=&(actual->next);
+    while((actual!=NULL) && (actual->cost>value)){ //Tant que la liste est pas vide et que la valeur de du bloc est < à celle cherchée:
+        preceding=&(actual->next); // on avance dans les blocs
         actual=actual->next;    
 
     }
@@ -22,25 +31,24 @@ t_value **search_prec(t_value **ad_head, int value){
 }
 
 void del_cell(t_value **preceding){
-    t_value *save=*preceding;
-    *preceding=save->next;
-    free(save);
+    t_value *save=*preceding; /* sauvegarde de l'élement à supprimer*/
+    *preceding=save->next; /* modification des liens entre les blocs*/
+    free(save); /* suppression du bloc sauvegardé*/
 }
-t_value *head = NULL;
-                    t_value **preceding = &head;
+
 
 void freelist(t_value *head){
-    t_value **preceding=&head;
+    t_value **preceding=&head; /* le précédent prend l'adresse de la tête de liste */
     while(head!=NULL){
-        del_cell(preceding);
+        del_cell(preceding); /* appel de la fonction pour supprimer un bloc et libérer la mémoire*/
     }
     
 }
 void display_linkChain(t_value *head){
-    t_value *actual=head;
+    t_value *actual=head; 
     while(actual){
-        printf("%d\n ", actual->cost);
-        actual=actual->next;
+        printf("%d\n ", actual->cost); /*affichage du coût de prod de chaque bloc*/
+        actual=actual->next; /*on met se place sur le bloc suivant*/
     }
 }
 
@@ -48,6 +56,7 @@ t_value *create_cell(int value, int fact_number, int week_number){
     t_value *cell=NULL;
     cell=(t_value*) malloc(sizeof(t_value));
     if(cell!=NULL){
+        /*Insertion des valeurs dans le bloc*/
         cell->cost=value;
         cell->factory=fact_number;
         cell->week=week_number;
