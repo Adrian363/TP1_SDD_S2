@@ -23,7 +23,7 @@ typedef struct value{
     int week;
     struct value *next;
 }t_value;
-
+ 
 /***************************************/
 /* Fonction d'insertion d'un bloc dans */
 /* une liste chainée, passage en       */

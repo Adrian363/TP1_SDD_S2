@@ -8,7 +8,7 @@
              /*            Traitement d'une liste chainée             */
              /*                   PROGRAMME PRINCIPAL                 */
              /*********************************************************/
-
+ 
 
 void add_cell(t_value **preceding, t_value *cell){
     cell->next=*preceding;

@@ -44,7 +44,7 @@ void insertVal(int** matrix, FILE* file, int lines, int columns){
         for(j=0; j<columns; j++){
             fscanf(file,"%d", &matrix[i][j]); /* Pour chaque case de chaque ligne, on lit une valeur dans le fichier et on le stocke dans la matrice*/
         }
-    
+     
     }
 }
 

@@ -63,6 +63,7 @@ int main(int argc, char *argv[])
                                      add_cell(preceding, cell);
             
                                  }
+                                 
                                  else 
                                                      
                                  {
