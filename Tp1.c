@@ -16,6 +16,8 @@ int main(int argc, char *argv[])
         int m = 0;
         int n = 0;
         int K = 0;
+        int i, j=0;
+        int delete_factory=0;
         char temp[4];
         char *fileName = NULL;
 
@@ -38,9 +40,9 @@ int main(int argc, char *argv[])
 
                 insertVal(matrix, file, m, n);
                 displayMatrix(matrix, m, n);
-                //Question 2
+                /*Question 2*/
 
-                // Vérification qu'on demande pas de trier plus de valeurs que celles présentent dans la matrice
+                /* Vérification qu'on demande pas de trier plus de valeurs que celles présentent dans la matrice*/
 
                 if (K <= n * m)
                 {
@@ -48,28 +50,30 @@ int main(int argc, char *argv[])
 
                     t_value **preceding=&head;
 
-                    for (int i=0; i<m; i++){
+                    for (i=0; i<m; i++){
                         
-                             for(int j=0;j<n; j++){
+                             for(j=0;j<n; j++){
                                  t_value *first_cell=head;
                                  if(i*n+j<K){
-                                     //recherche prec
+                                     /*recherche prec*/
                                     preceding=search_prec(&head, matrix[i][j]);
 
-                                     //Creation elem
-                                    t_value *cell=create_cell(matrix[i][j], i, j);
+                                     /*Creation elem*/
+                                    t_value *cell = NULL;
+                                    cell=create_cell(matrix[i][j], i, j);
 
-                                     // Insertion elem
+                                     /* Insertion elem */
                                      add_cell(preceding, cell);
             
                                  }
-                                 
+
                                  else 
                                                      
                                  {
                                      if(first_cell->cost>matrix[i][j]){
                                         preceding=search_prec(&head, matrix[i][j]);
-                                        t_value *cell=create_cell(matrix[i][j], i, j);
+                                        t_value *cell=NULL;
+                                        cell=create_cell(matrix[i][j], i, j);
                                         add_cell(preceding, cell);
                                         del_cell(&head);
                                      }
@@ -80,8 +84,11 @@ int main(int argc, char *argv[])
                         }
                     
                     display_linkChain(head);
-                    del_factory(&head, 0);
-                    printf("Modify linked-list \n");
+                    printf("Which factory do you want to delete \n\n");
+                    scanf("%d", &delete_factory);
+                    printf(" \n\n");
+                    del_factory(&head, delete_factory);
+                    printf("Modify linked-list \n \n");
                     display_linkChain(head);
                     writefile("output.txt",head);
                     freelist(head);

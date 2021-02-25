@@ -72,10 +72,12 @@ t_value *create_cell(int value, int fact_number, int week_number){
 void del_factory(t_value **ad_head, int fact){
     t_value **preceding=ad_head;
 
-    while(*preceding!=NULL){
+    while(*preceding!=NULL){ 
         preceding=search_prec_bis (preceding, fact);
-        printf("Suppression \n");
-        del_cell(preceding);
+        if(*preceding!=NULL){ // Verif sinon seg fault quand on veut supprimer un element au début de chaine
+            del_cell(preceding);
+        }
+        
     }
 
 }
