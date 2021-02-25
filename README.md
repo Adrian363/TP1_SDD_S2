@@ -2,5 +2,5 @@
 
 ## V1.1
 - reorganization of .c and .h files
-- addition of a makefile
+- addition of a makefile 
 - some minor changes to the code

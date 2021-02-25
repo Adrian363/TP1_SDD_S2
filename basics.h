@@ -3,7 +3,15 @@
 
 #include <stdio.h>
 
-/* Déclaration des fonctions du TP1 */
+
+  
+             /*********************************************************/
+             /*                   Adrian Cottais 2021                 */
+             /*-------------------------------------------------------*/
+             /*                       basics.h                        */
+             /*              Quelques fonctions classiques            */
+             /*                   PROGRAMME PRINCIPAL                 */
+             /*********************************************************/
 
 void openfile(FILE** file, char* fileName);
 
