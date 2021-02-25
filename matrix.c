@@ -9,7 +9,7 @@
              /*                   PROGRAMME PRINCIPAL                 */
              /*********************************************************/
 
-
+ 
 int **createMatrix(int lines, int columns){
     int i=0;
     int verifAlloc=0;

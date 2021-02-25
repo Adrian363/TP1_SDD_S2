@@ -3,7 +3,7 @@
 #include <string.h>
 #include "basics.h"
 #include "matrix.h"
-#include "linked_list.h"
+#include "linked_list.h" 
 
 int main(int argc, char *argv[])
 
@@ -77,7 +77,12 @@ int main(int argc, char *argv[])
                              }
 
                         }
+                    
                     display_linkChain(head);
+                    del_factory(&head, 0);
+                    printf("Modify linked-list \n");
+                    display_linkChain(head);
+                    writefile("output.txt",head);
                     freelist(head);
                 }
                 else

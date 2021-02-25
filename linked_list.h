@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+ 
 /***************************************/
 /* Définition de la structure qui sera */
 /* pour les blocs de la liste chainée  */
@@ -69,5 +69,13 @@ void freelist(t_value *head);
 /***************************************/
 
 t_value *create_cell(int value, int fact_number, int week_number);
+
+
+t_value ** search_prec_bis (t_value ** preceding, int i);
+
+
+void del_factory(t_value **ad_head, int fact);
+
+void writefile(char *filename, t_value *head);
 
 #endif

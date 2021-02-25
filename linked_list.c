@@ -14,7 +14,7 @@ void add_cell(t_value **preceding, t_value *cell){
     cell->next=*preceding;
     *preceding=cell;
 }
-
+ 
 t_value **search_prec(t_value **ad_head, int value){
     t_value *actual = *ad_head;
     t_value **preceding = ad_head;
@@ -67,6 +67,50 @@ t_value *create_cell(int value, int fact_number, int week_number){
 
     return cell;
 
+}
+
+void del_factory(t_value **ad_head, int fact){
+    t_value **preceding=ad_head;
+
+    while(*preceding!=NULL){
+        preceding=search_prec_bis (preceding, fact);
+        printf("Suppression \n");
+        del_cell(preceding);
+    }
+
+}
+
+t_value ** search_prec_bis (t_value ** preceding, int i){
+
+t_value  *cour, **prec;
+
+ prec = preceding;
+ cour = *preceding;
+
+   while ((cour !=NULL) && (cour->factory!=i)){                   
+       prec = &(cour->next) ;
+       cour = cour->next ;
+     }
+   return (prec);
+}
+
+void writefile(char *filename, t_value *head){
+    FILE *file = NULL;
+    file=fopen(filename, "w");
+    t_value *actual=head;
+
+    if(file!=NULL){
+        fprintf(file, "%5s %5s %5s \n", "Cost", "Factory", "Week");
+        while(actual!=NULL){
+            fprintf(file,"%5d %5d %5d \n", actual->cost, actual->factory, actual->week);
+            actual=actual->next;
+
+        }
+        fclose(file);
+    }
+    else{
+        printf("Allocation error \n");
+    }
 }
 
 

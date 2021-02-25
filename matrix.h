@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+ 
 /***************************************/
 /* Fonction de création de la matrice, */
 /* retourne un tableau 2 dimensions    */

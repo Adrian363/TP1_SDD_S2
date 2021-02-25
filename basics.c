@@ -11,4 +11,4 @@
 
 void openfile(FILE** file, char* fileName){
     *file=fopen(fileName, "r");
-}
+} 
