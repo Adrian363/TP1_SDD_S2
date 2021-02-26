@@ -34,7 +34,8 @@ void add_cell(t_value **preceding, t_value *cell);
 
 /***************************************/
 /* Fonction de recherche du précedent  */
-/* d'une valeur, passage en paramètre  */
+/* d'une valeur dans une liste triee,  */ 
+/* passage en paramètre                */
 /* de l'adresse de la tête et de la    */
 /* valeur à trouver                    */
 /***************************************/
@@ -70,11 +71,30 @@ void freelist(t_value *head);
 
 t_value *create_cell(int value, int fact_number, int week_number);
 
+/***************************************/
+/* Fonction de recherche du précedent  */
+/* d'une valeur dans une liste non     */ 
+/* triee,  passage en paramètre        */
+/* de l'adresse de la tête et de la    */
+/* valeur à trouver                    */
+/***************************************/
 
 t_value ** search_prec_bis (t_value ** preceding, int i);
 
+/***************************************/
+/* Fonction qui permet de              */
+/* lancer la recherche de l'usine et   */
+/* et de supprimer les blocs qui       */
+/* correspondent                       */
+/***************************************/
 
 void del_factory(t_value **ad_head, int fact);
+
+/***************************************/
+/* Fonction qui ecrit le contenu de    */
+/* d'une liste chainee dans un fichier */
+/* passee en parametre                 */
+/***************************************/
 
 void writefile(char *filename, t_value *head);
 

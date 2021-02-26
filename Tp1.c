@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
         int delete_factory=0;
         char temp[4];
         char *fileName = NULL;
+        t_value *cell = NULL;
 
         fileName = malloc((strlen(argv[1])+1)*sizeof(char));
         strcpy(fileName, argv[1]);
@@ -59,7 +60,7 @@ int main(int argc, char *argv[])
                                     preceding=search_prec(&head, matrix[i][j]);
 
                                      /*Creation elem*/
-                                    t_value *cell = NULL;
+                                    cell=NULL;
                                     cell=create_cell(matrix[i][j], i, j);
 
                                      /* Insertion elem */
@@ -72,7 +73,7 @@ int main(int argc, char *argv[])
                                  {
                                      if(first_cell->cost>matrix[i][j]){
                                         preceding=search_prec(&head, matrix[i][j]);
-                                        t_value *cell=NULL;
+                                        cell=NULL;
                                         cell=create_cell(matrix[i][j], i, j);
                                         add_cell(preceding, cell);
                                         del_cell(&head);
@@ -113,4 +114,6 @@ int main(int argc, char *argv[])
     {
         printf("Veuillez renseignez le fichier de valeurs ou le nombre de valeur min \n");
     }
+
+    return 1;
 }

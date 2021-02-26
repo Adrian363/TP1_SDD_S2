@@ -74,7 +74,7 @@ void del_factory(t_value **ad_head, int fact){
 
     while(*preceding!=NULL){ 
         preceding=search_prec_bis (preceding, fact);
-        if(*preceding!=NULL){ // Verif sinon seg fault quand on veut supprimer un element au début de chaine
+        if(*preceding!=NULL){ /*Verification sinon seg fault quand on veut supprimer un element au debut de chaine*/
             del_cell(preceding);
         }
         
@@ -96,14 +96,17 @@ t_value  *cour, **prec;
    return (prec);
 }
 
+
 void writefile(char *filename, t_value *head){
     FILE *file = NULL;
-    file=fopen(filename, "w");
-    t_value *actual=head;
+    t_value *actual=NULL; 
+    file=fopen(filename, "w"); /* Ouverture du fichier en mode ecriture */
+   
 
     if(file!=NULL){
-        fprintf(file, "%5s %5s %5s \n", "Cost", "Factory", "Week");
-        while(actual!=NULL){
+        actual=head;
+        fprintf(file, "%5s %5s %5s \n", "Cost", "Factory", "Week"); /*formatage de la premiere ligne du fichier */
+        while(actual!=NULL){ /* tant qu'on a pas fini la liste, on ecrire le contenu du bloc dans le fichier */
             fprintf(file,"%5d %5d %5d \n", actual->cost, actual->factory, actual->week);
             actual=actual->next;
 

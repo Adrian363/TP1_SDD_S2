@@ -14,5 +14,5 @@ clair :
 	rm tp1.o basics.o matrix.o linked_list.o
 propre : clair
 	rm tp1
-	
+
  
