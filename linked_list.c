@@ -10,11 +10,26 @@
              /*********************************************************/
  
 
+/********************************************************/
+/* Lexique add_cell:                                    */
+/* Double pointeur t_value preceding = pointeur sur     */
+/*  zone mémoire de la cellule précédent de celle à     */
+/*  modifier.                                           */
+/*  Pointeur t_value cell: bloc à insérer dans la liste */
+/********************************************************/
+
 void add_cell(t_value **preceding, t_value *cell){
     cell->next=*preceding;
     *preceding=cell;
 }
- 
+
+/********************************************************/
+/* Lexique search_prec:                                 */
+/* Double pointeur t_value ad_head = adresse de la      */
+/* tête de liste                                        */
+/* Entier value: Valeur à rechercher dans la liste      */
+/********************************************************/
+
 t_value **search_prec(t_value **ad_head, int value){
     t_value *actual = *ad_head;
     t_value **preceding = ad_head;
@@ -30,11 +45,29 @@ t_value **search_prec(t_value **ad_head, int value){
 
 }
 
+/********************************************************/
+/* Lexique del_cell:                                    */
+/* Double pointeur t_value preceding = pointeur sur     */
+/*  zone mémoire de la cellule précédente de celle à    */
+/*  supprimer.                                          */
+/* Pointeur t_value save= élément à supprimer           */
+/********************************************************/
+
 void del_cell(t_value **preceding){
     t_value *save=*preceding; /* sauvegarde de l'élement à supprimer*/
     *preceding=save->next; /* modification des liens entre les blocs*/
     free(save); /* suppression du bloc sauvegardé*/
 }
+
+
+/********************************************************/
+/* Lexique freelist:                                    */
+/* Pointeur t_value head = pointeur sur la tete de la   */
+/*   liste                                              */
+/* Double pointeur t_value preceding = pointeur sur     */
+/*  zone mémoire de la cellule précédente de celle à    */
+/*  supprimer.                                          */
+/********************************************************/
 
 
 void freelist(t_value *head){
@@ -44,6 +77,15 @@ void freelist(t_value *head){
     }
     
 }
+
+/********************************************************/
+/* Lexique display_linkChain:                           */
+/* Pointeur t_value head = pointeur sur la tete de la   */
+/*   liste                                              */
+/* Pointeur t_value actual= pointeur sur l'élement      */
+/*  courant dans la liste                               */
+/********************************************************/
+
 void display_linkChain(t_value *head){
     t_value *actual=head; 
     while(actual){
@@ -54,6 +96,14 @@ void display_linkChain(t_value *head){
         actual=actual->next; /*on met se place sur le bloc suivant*/
     }
 }
+
+/********************************************************/
+/* Lexique create_cell:                                 */
+/* Pointeur t_value cell = bloc qui est crée et qui sera*/
+/*  intégré dans la liste                               */
+/* Entier value, fact_number, week_number:              */
+/*  Valeurs à insérer dans le bloc crée précédement     */
+/********************************************************/
 
 t_value *create_cell(int value, int fact_number, int week_number){
     t_value *cell=NULL;
@@ -68,6 +118,16 @@ t_value *create_cell(int value, int fact_number, int week_number){
     return cell;
 
 }
+/********************************************************/
+/* Lexique del_factory:                                 */
+/* Double pointeur t_value ad_head = adresse de la      */
+/* tête de liste                                        */
+/* Entier fact: Numero de l'usine à supprimer dans la   */
+/*  liste                                               */
+/* Double pointeur t_value preceding = pointeur sur     */
+/*  zone mémoire de la cellule précédente de celle à    */
+/*  supprimer.                                          */
+/********************************************************/
 
 void del_factory(t_value **ad_head, int fact){
     t_value **preceding=ad_head;
@@ -81,6 +141,18 @@ void del_factory(t_value **ad_head, int fact){
     }
 
 }
+
+/********************************************************/
+/* Lexique search_prec_bis:                             */
+/* Double pointeur t_value preceding = adresse de la    */
+/*  tête de liste                                       */
+/* Double pointeur t_value prec = pointeur sur          */
+/*  zone mémoire de la cellule précédente de celle à    */
+/*  supprimer.                                          */
+/* Pointeur t_value cour= pointeur sur l'élément        */
+/*  courant dans la liste.                              */
+/* Entier i: Valeur à rechercher dans la liste          */
+/********************************************************/
 
 t_value ** search_prec_bis (t_value ** preceding, int i){
 
@@ -96,6 +168,14 @@ t_value  *cour, **prec;
    return (prec);
 }
 
+/********************************************************/
+/* Lexique writefile:                                   */
+/* Fichier file: Fichier d'écriture de la liste chainée */
+/* Pointeur t_value actual= pointeur sur l'élément      */
+/*  courant dans la liste.                              */
+/* Pointeur t_value head = pointeur sur la tete de la   */
+/*  liste                                               */
+/********************************************************/
 
 void writefile(char *filename, t_value *head){
     FILE *file = NULL;

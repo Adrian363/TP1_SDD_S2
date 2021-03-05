@@ -23,9 +23,9 @@ int main(int argc, char *argv[])
         t_value *cell = NULL;
 
         fileName = malloc((strlen(argv[1])+1)*sizeof(char));
+        K=atoi(argv[2]);
         strcpy(fileName, argv[1]);
         file=fopen(fileName, "r");
-        K=atoi(argv[2]);
 
         if (file != NULL)
         {
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 
                 /* Vérification qu'on demande pas de trier plus de valeurs que celles présentent dans la matrice*/
 
-                if (K <= n * m)
+                if (K>0 && K <= n * m )
                 {
                     t_value *head = NULL;
 
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
                         
                              for(j=0;j<n; j++){
                                  t_value *first_cell=head;
-                                 if(i*n+j<K){
+                                 if(i*n+j<K){ /* Ajout des K premiers éléments dans de la matrice dans la liste*/
                                      /*recherche prec*/
                                     preceding=search_prec(&head, matrix[i][j]);
 
@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
                                  else 
                                                      
                                  {
-                                     if(first_cell->cost>matrix[i][j]){
+                                     if(first_cell->cost>matrix[i][j]){ /* Si la valeur en tete de la liste est sup à celle de la matrice*/
                                         preceding=search_prec(&head, matrix[i][j]);
                                         cell=NULL;
                                         cell=create_cell(matrix[i][j], i, j);
@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
                 }
                 else
                 {
-                    printf("K est trop grand par rapport au nombre de valeurs disponibles dans la matrice");
+                    printf("K est trop grand par rapport au nombre de valeurs disponibles dans la matrice, soit inférieur ou égale à 0 \n");
                 }
         
                 freeMatrix(matrix, m);

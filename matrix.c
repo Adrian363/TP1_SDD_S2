@@ -9,7 +9,17 @@
              /*                   PROGRAMME PRINCIPAL                 */
              /*********************************************************/
 
- 
+
+/********************************************************/
+/* Lexique createMatrix:                                */
+/* Entier i: Utiliser pour itérations de la boucle pour */
+/* Entier verifAlloc: Code retour après une allocation  */
+/* Double pointeur entier matrix= Tableau 2 dimensions  */
+/* avec les coûts                                       */
+/* Entiers lines et columns: Régissent la taille de la  */
+/* matrice                                              */
+/********************************************************/
+
 int **createMatrix(int lines, int columns){
     int i=0;
     int verifAlloc=0;
@@ -36,6 +46,17 @@ int **createMatrix(int lines, int columns){
     return matrix;
 }
 
+/********************************************************/
+/* Lexique insertVal:                                   */
+/* Entiers i,j: Utiliser pour itérations des boucles    */
+/*   pour                                               */
+/* Double pointeur entier matrix= Tableau 2 dimensions  */
+/* avec les coûts                                       */
+/* Fichier file: Fichier avec les coûts à récupérer     */
+/* Entiers lines et columns: Régissent la taille de la  */
+/* matrice                                              */
+/********************************************************/
+
 void insertVal(int** matrix, FILE* file, int lines, int columns){
     int i=0;
     int j=0;
@@ -47,6 +68,17 @@ void insertVal(int** matrix, FILE* file, int lines, int columns){
      
     }
 }
+
+/********************************************************/
+/* Lexique diplayMatrix:                                */
+/* Entiers i,j: Utiliser pour itérations des boucles    */
+/*   pour                                               */
+/* Double pointeur entier matrix= Tableau 2 dimensions  */
+/* avec les coûts                                       */
+/* Entiers lines et columns: Régissent la taille de la  */
+/* matrice                                              */
+/********************************************************/
+
 
 void displayMatrix(int** matrix,int lines, int columns){
     int i=0;
@@ -61,6 +93,15 @@ void displayMatrix(int** matrix,int lines, int columns){
     }
     printf("\n");
 }
+
+/********************************************************/
+/* Lexique freeMatrix:                                  */
+/* Entier i: Utiliser pour itérations de la  boucles    */
+/*   pour                                               */
+/* Double pointeur entier matrix= Tableau 2 dimensions  */
+/* avec les coûts                                       */
+/* Entier lines: Nombre de lignes dans la matrice       */
+/********************************************************/
 
 void freeMatrix(int** matrix, int lines){
     int i=0;
