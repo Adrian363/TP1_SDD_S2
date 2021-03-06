@@ -1,5 +1,7 @@
 # TP1 SDD - Cottais Adrian - G22
 
+Code disponible sur [GitHub](https://github.com/Adrian363/TP1_SDD_S2/tree/Q2)
+
 ## Objectif du TP:
 
 Le but de ce TP est dans un premier temps de créer **une matrice avec des coûts de productions** stockés dans un fichier.
@@ -12,7 +14,7 @@ Enfin, il faut **supprimer tous les blocs d'une usine u** et exporter le **résu
 ### Structure n°1:
 
 Utilisation d'un tableau dynamique de m lignes et n colonnes.
-Les valeurs m et n sont lues dans le fichier donc la tableau d'adapte en fonction de leurs tailles. La structure de données associée est donc une **liste contigue de taille m x n**.
+Les valeurs m et n sont lues dans le fichier donc le tableau s'adapte en fonction se ses valeurs. La structure de données associée est donc une **liste contigüe de taille m x n**.
 
 
 ![](https://i.imgur.com/md4an9o.png)
@@ -21,7 +23,8 @@ Les valeurs m et n sont lues dans le fichier donc la tableau d'adapte en fonctio
 ### Structure n°2:
 
 Utilisation d'une liste chainée avec K cellules de 4 blocs chacuns.
-Une cellule est composée d'une zone mémoire pour le coût de fabrication, une pour l'usine, une pour la semaine de production etfin la dernière est un pointeur vers la prochaine cellule.
+
+Une cellule est composée d'une zone mémoire pour le coût de fabrication, une pour l'usine, une pour la semaine de production et enfin la dernière est un pointeur vers la prochaine cellule.
 
 ![](https://i.imgur.com/YKo1CMT.png)
 
@@ -32,8 +35,9 @@ Une cellule est composée d'une zone mémoire pour le coût de fabrication, une 
 ### Fichiers:
 
 Tous les fichiers ont la même syntaxe.
-Sur la première ligne on retrouve la valeur m puis n séparé par un espace.
+Sur la première ligne on retrouve la valeur m puis n séparée par un espace.
 Ensuite, sur chacune des lignes suivantes on trouve un coût de production.
+
 **Attention**: On doit disposer de n x m valeurs sinon il y aura une erreur lors de l'insertion dans la matrice.
 
 **Exemple de fichier**:
@@ -57,18 +61,18 @@ Le nombres de K plus petits coûts à insérer dans la liste chainée est un ent
 ````
 
 ### Choix de l'usine à supprimer:
-Le choix est à faire quand le programme s'execute. Une boite de dialogue permettra de renseigner cette valeur.
+Le choix est à faire quand le programme s'exécute. Une boîte de dialogue permettra de renseigner cette valeur.
 
-Mettre photo
+
 
 ## Détail des fichiers du programme:
 
 ### Organisation du code source:
 
-**matrix.h**: Fichier entêtes gestion de la matrice.
+**matrix.h**: Fichier entêtes pour gestion de la matrice.
 **matrix.c**: Fichier contenant les fonctions pour la gestion de la matrice. 
-**linked_list.h**: Fichier entêtes gestion de la liste chainée.
-**linked_list.c**: Fichier contenant les fonctions pour la gestion la liste chainée.
+**linked_list.h**: Fichier pour entêtes gestion de la liste chainée.
+**linked_list.c**: Fichier contenant les fonctions pour la gestion de la liste chainée.
 **basics.h**: Fichier entêtes avec les fonctions de base 
 **basics.c**: Fichier contenant les fonctions de base
 **Tp1.c**: Programme principal
@@ -95,7 +99,7 @@ Mettre photo
 ```
 ### Fichier de données:
 
-Dans le code fourni, il y a 5 jeux de données disponibles qui permettent de tester le bon fonctionnement du programme.
+Dans le code fournit, il y a 6 jeux de données disponibles qui permettent de tester le bon fonctionnement du programme.
 Ces fichiers ont la syntaxe suivante: data**num**.txt.
 
 Enfin le fichier **output.txt** est utilisé pour stocker la liste chainée.
@@ -108,15 +112,15 @@ Enfin le fichier **output.txt** est utilisé pour stocker la liste chainée.
 **Fonction createMatrix(lines, columns)**:
 Principe:
 ```
-Allocation du nombre de lignes de la matrice
+Allocation du nombre de lignes de la matrice;
 
 Si allocation réussie alors:
     Pour i de 0 à n-1:
-     allocation des colonnes;
-     verification allocation;
+         Allocation des colonnes;
+         Vérification allocation;
     Fin pour
     Si allocations non réussies:
-        libérer matrix;
+        Libérer matrix;
     Fsi
 Fsi
 
@@ -138,7 +142,7 @@ Pour i de 0 à m-1:
     Pour j de 0 à n-1:
         Afficher la case i,j de la matrice;
     Fin Pour
-    Saut de ligne;
+        Saut de ligne;
 Fin Pour
 ```
 
@@ -165,7 +169,7 @@ Pour les listes chainées triées.
     cour= valeur de la tete;
     prec= adresse de la tete;
     
-    Tant que la liste est pas finie de défiler et que val_cherchee < à val de la case:
+    Tant que la liste est pas finie et que val_cherchée < à valeur de la case:
         Avance du prec sur la zone suivante du cour;
         Avance du cour sur le prochain bloc;
     Fin Tant Que
@@ -180,7 +184,7 @@ Pour les listes chainées non triées.
     cour= valeur de la tete;
     prec= adresse de la tete;
     
-    Tant que la liste est pas finie de défiler et que val_cherchee != à val de la case:
+    Tant que la liste est pas finie et que val_cherchee != à val de la case:
         Avance du prec sur la zone suivante du cour;
         Avance du cour sur le prochain bloc;
     Fin Tant Que
@@ -198,7 +202,7 @@ Pour les listes chainées non triées.
 **Procédure free_list(es:tete)**:
 ```
     Double pointeur prec prend l'adresse de la tête;
-    Tant que la tete est pas à NIL faire:
+    Tant que la tête est pas à NIL faire:
         Appel de la fonction del_cel(prec);
     Fin Tant que
         
@@ -210,13 +214,13 @@ Pour les listes chainées non triées.
         Afficher le coût de la case cour;
         Afficher l'usine de la case cour;
         Afficher la semaine de la case cour;
-        Cour prend l'adresse dans contenu dans le suivant du cour actuel
+        Cour prend l'adresse contenu dans le suivant du cour actuel;
     Fin Tant Que
 ```
 
 **Fonction create_cell(coût, num_usine, sem_prod)**:
 ```
-        cell=allocation taille d'une cellule
+        cell=allocation taille d'une cellule;
         Si allocation réussie:
             Ajout du coût,num_usine, sem_prod dans la cellule;
         Fsi
@@ -248,7 +252,6 @@ Pour les listes chainées non triées.
     Sinon:
         Ecriture "Fichier introuvable";
     Fsi
-
 ```    
 ### Fonctions TP1(main):
 Algorithme de principe du main():
@@ -262,12 +265,12 @@ Debut:
             Récupération de m et n;
             Création de matrice;
             Si matrice bien créee:
-                Insertion des valeurs fichier dans matrice;
+                Insertion des valeurs du fichier dans matrice;
                 Affichage matrice;
                 Si K>0 && K <= n * m:
                     Creation tête liste chainée;
-                    Pour 0 à m-1:
-                        Pour 0 à n-1:
+                    Pour i de 0 à m-1:
+                        Pour j de 0 à n-1:
                             Si i*n+j<K :
                                 Recherche du précédent;
                                 Création cellule;
@@ -354,7 +357,7 @@ Liste chainée de sortie:
      Factory :0
      Week:0
 ```
-Choix de suppression de l'usine 1, avec un bloc contenant cette usine en tête. Résultats après:
+Choix de suppression de l'usine 1, avec un bloc contenant cette usine en tête. Résultat après:
 ```  
     Modify linked-list 
  
@@ -371,7 +374,7 @@ Choix de suppression de l'usine 1, avec un bloc contenant cette usine en tête. 
      Week:0
      --------- 
 ```
-Choix de suppression de l'usine 3, avec un bloc contenant cette usine en milieu de liste. Résultats après:
+Choix de suppression de l'usine 3, avec un bloc contenant cette usine en milieu de liste. Résultat après:
 ```    
     Modify linked-list 
  
@@ -389,7 +392,7 @@ Choix de suppression de l'usine 3, avec un bloc contenant cette usine en milieu 
     --------- 
 
 ```
-Choix de suppression de l'usine 0, avec un bloc contenant cette usine en milieu de liste et en fin. Résultats après:
+Choix de suppression de l'usine 0, avec un bloc contenant cette usine en milieu de liste et en fin. Résultat après:
 ```
     Modify linked-list 
  
@@ -402,7 +405,7 @@ Choix de suppression de l'usine 0, avec un bloc contenant cette usine en milieu 
     Week:2
     ---------
 ```
-Avec le même fichier avec le 2 côuts les plus faibles:
+Avec le même fichier avec les 2 côuts les plus faibles:
 ```
     ./tp1 data.txt 2 
 ```
@@ -515,9 +518,10 @@ Ici on a donc un matrice de taille 0 avec 0 valeurs.
 
 Si on rentre K supérieur ou égale à 0, ou inférieur à 0 on aura le message d'erreur suivant:
 ```    
-   K est trop grand par rapport au nombre de valeurs disponibles dans la matrice, soit inférieur ou égale à 0 
+   K est trop grand par rapport au nombre de valeurs 
+   disponibles dans la matrice, soit inférieur ou égale à 0 
 ```
 **Remarque**: ce message sera affiché à chaque fois que K sera **supérieur à m x n**.
 
-Tout fonctionne bien avec une matrice de taille 0 car on de toute façon on ne pourra pas choisir les K coûts les plus faibles.
+Tout fonctionne bien avec une matrice de taille 0 car on ne pourra pas choisir les K coûts les plus faibles.
 Rien n'est initialisé et on obtient directement le message d'erreur.
