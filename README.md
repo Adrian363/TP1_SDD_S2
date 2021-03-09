@@ -14,10 +14,12 @@ Enfin, il faut **supprimer tous les blocs d'une usine u** et exporter le **résu
 ### Structure n°1:
 
 Utilisation d'un tableau dynamique de m lignes et n colonnes.
-Les valeurs m et n sont lues dans le fichier donc le tableau s'adapte en fonction se ses valeurs. La structure de données associée est donc une **liste contigüe de taille m x n**.
+Les valeurs m et n sont lues dans le fichier donc le tableau s'adapte en fonction de ses valeurs.
+La structure de données associée est donc une **liste contigüe de pointeurs de taille m. Tous les pointeurs de cette liste pointent vers une autre liste contigüe de taille n contenant des entiers.**
 
 
-![](https://i.imgur.com/md4an9o.png)
+ ![](https://i.imgur.com/Pp9iP2Q.jpg)
+
 
 
 ### Structure n°2:
